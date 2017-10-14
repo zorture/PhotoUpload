@@ -17,6 +17,13 @@ class PhotoPickerVC: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
 
+    static let sharedInstance: PhotoPickerVC? = {
+        guard let photoPickerVC = UIStoryboard(name: "PhotoPicker", bundle: nil).instantiateViewController(withIdentifier: "PhotoPickerVC") as? PhotoPickerVC else {
+            return nil
+        }
+        return photoPickerVC
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self

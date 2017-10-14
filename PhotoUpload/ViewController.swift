@@ -21,12 +21,9 @@ class ViewController: UIViewController {
     }
 
     @IBAction func photoPickerClicked(_ sender: UIButton) {
-        
-        if let photoPickerVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PhotoPickerVC") as? PhotoPickerVC{
-        photoPickerVC.modalPresentationStyle = .fullScreen
-        present(photoPickerVC, animated: true, completion: nil)
+        if let photoPickerVC = PhotoPickerVC.sharedInstance {
+            present(photoPickerVC, animated: true, completion: nil)
         }
-        
     }
     
 }
